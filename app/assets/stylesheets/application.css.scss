@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+html.daniel_romero{
+  position: relative;
+  min-height: 100%;
+  /* First import superhero bootstrap theme variables */
+  @import "bootswatch/superhero/variables";
+  /* Bootstrap overrides */
+  @import 'bootstrap-custom';
+  /* Then bootstrap itself */
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+  @import "tweets";
+  body {
+    /* Bootstrap body padding for fixed navbar and sticky footer */
+    padding-top: 60px;
+    margin-bottom: 60px;
+
+    header#application_header{
+
+    }
+    section#application_content{
+      .soft_appear .appear_elem{ display: none }
+      #about{
+        img{
+          max-width: 150px;
+          height: auto;
+          margin-top: 25px;
+        }
+        span.label.skill{
+          margin: 2px;
+        }
+        span.label.skill:hover{
+          cursor: default;
+          opacity: .8;
+        }
+      }
+      #me .row{
+        margin-bottom: 120px;
+      }
+    }
+    footer#application_footer{
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      background-color: #F5F5F5;
+      nav.navbar.navbar-default{ margin-bottom: 0px; }
+    }
+  }
+
+  /* And finally bootswatch style itself */
+  @import "bootswatch/superhero/bootswatch";
+}

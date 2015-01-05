@@ -1,0 +1,62 @@
+%div{:itemscope => "", :itemtype => "http://data-vocabulary.org/Person"}
+  #about
+    #me
+      .row
+        .col-xs-12.col-sm-9.col-md-10.col-lg-10
+          .page-header
+            %h1
+              %span{:itemprop => "name"}
+                Daniel Romero Esteban
+              %span.hidden{:itemprop => "title"}
+                Graduado en Sistemas de Información
+              %span.hidden{:itemprop => "affiliation"}
+                Beperk.com
+            %span.hidden{:itemprop => "address", :itemscope => "", :itemtype => "http://data-vocabulary.org/Address"}
+              %span{:itemprop => "locality"} Guadalajara
+              ,
+              %span{:itemprop => "region"} Castilla la mancha
+              %span{:itemprop => "country"} España
+          .col-xs-12.col-sm-12.col-md-8.col-lg-8
+
+            -classes = ['default', 'primary', 'success', 'info', 'warning', 'danger']
+            %span.label.skill{ class: "label-#{classes.sample}" } Ruby on Rails
+            %span.label.skill{ class: "label-#{classes.sample}" } AWS
+            %span.label.skill{ class: "label-#{classes.sample}" } Postgresql
+            %span.label.skill{ class: "label-#{classes.sample}" } Heroku
+            %span.label.skill{ class: "label-#{classes.sample}" } PayPal API
+            %span.label.skill{ class: "label-#{classes.sample}" } Transloadit
+            %span.label.skill{ class: "label-#{classes.sample}" } Cloudinary
+            %span.label.skill{ class: "label-#{classes.sample}" } memcachier
+            %span.label.skill{ class: "label-#{classes.sample}" } Mandrill
+            %span.label.skill{ class: "label-#{classes.sample}" } CoffeeScript
+            %span.label.skill{ class: "label-#{classes.sample}" } HTML 5
+            %span.label.skill{ class: "label-#{classes.sample}" } Integración con redes sociales
+            %span.label.skill{ class: "label-#{classes.sample}" } APIs REST
+          .hidden-xs.hidden-sm.col-md-4.col-lg-4
+            .progress
+              .progress-bar.progress-bar-success
+                60%
+              .progress-bar.progress-bar-warning
+              .progress-bar.progress-bar-danger
+        .hidden-xs.col-sm-3.col-md-2.col-lg-2.soft_appear
+          =image_tag(AVATARS.sample, class: 'img-circle img-responsive avatar pull-right appear_elem', alt: 'Daniel Romero Esteban')
+      
+
+      
+      =render partial: 'application/timeline', locals: {classes: classes}
+    %hr
+    #twitter
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            Twitter - danielRomeroE
+            #twitter_loading_area.fa.fa-circle-o-notch.fa-spin.pull-right{ data: { toggle: 'tooltip', placement: 'top', original: {title: t(:loading) } }, title: t(:loading) }
+            :javascript
+              $('#twitter_loading_area').appear();
+              $('#twitter_loading_area').on('appear', function(event, elem){
+                $(this).unbind('appear');
+                $.getScript("#{tweets_path(0)}");
+              });
+              $.force_appear();
+        .panel-body
+          %ul.list-group

@@ -1,0 +1,55 @@
+!!!
+%html.daniel_romero{lang: I18n.locale.to_s}
+  %head{prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#"}
+    %meta{charset: 'utf-8'}
+    %title About Daniel Romero
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %link{href: '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', rel: 'stylesheet'}
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    %link{:href => asset_url('icon_144X144.png'), :rel => "shortcut icon", :type => "image/png"}/
+    %link{:href => asset_url('icon_144X144.png'), :rel => "icon", :type => "image/png"}/
+    %link{:href => asset_url('icon_144X144.png'), :rel => "fluid-icon", :title => "Daniel Romero"}/
+    %link{:href => asset_url('icon_57X57.png'), :rel => "apple-touch-icon", :sizes => "57x57"}/
+    %link{:href => asset_url('icon_72X72.png'), :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => asset_url('icon_114X114.png'), :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => asset_url('icon_144X144.png'), :rel => "apple-touch-icon", :sizes => "144x144"}/
+    
+    %meta{:content => "#{DOMINIO}", :property => "og:url"}/
+    %meta{:content => "About Daniel Romero", :property => "og:site_name"}/
+    %meta{:content => "About Daniel Romero", :property => "og:title"}/
+    %meta{:content => t(:meta_description), :property => "og:description"}/
+    
+    %meta{:content => asset_url('Daniel_Romero_1200X1200.jpg'), :property => "og:image"}/
+    %meta{:content => "image/jpeg", :property => "og:image:type"}/
+    %meta{:content => "1200", :property => "og:image:width"}/
+    %meta{:content => "1200", :property => "og:image:height"}/
+
+    %meta{:content => asset_url('Daniel_Romero_1200X620.jpg'), :property => "og:image"}/
+    %meta{:content => "image/jpeg", :property => "og:image:type"}/
+    %meta{:content => "1200", :property => "og:image:width"}/
+    %meta{:content => "620", :property => "og:image:height"}/
+
+    %meta{:content => asset_url('Daniel_Romero_1200X620.jpg'), :property => "og:image"}/
+    %meta{:content => "image/jpeg", :property => "og:image:type"}/
+    %meta{:content => "1200", :property => "og:image:width"}/
+    %meta{:content => "620", :property => "og:image:height"}/
+
+    %meta{:content => "DanielRomeroE", :property => "twitter:creator"}/
+    %meta{:content => "250331099", :property => "twitter:creator:id"}/
+    
+    %meta{:content => "summary_large_image", :property => "twitter:card"}/
+    %meta{:content => "About Daniel Romero", :property => "twitter:title"}/
+    %meta{:content => t(:meta_description), :property => "twitter:description"}/
+
+    %meta{:content => asset_url('Daniel_Romero_1200X1200.jpg'), :property => "twitter:image:src"}/
+    %meta{:content => "1200", :property => "twitter:image:width"}/
+    %meta{:content => "1200", :property => "twitter:image:height"}/
+
+    %meta{:content => t(:meta_description), :name => "description"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+  %body
+    %header#application_header=render partial: 'application/header'
+    %section.container#application_content= yield
+    %footer#application_footer=render partial: 'application/footer'

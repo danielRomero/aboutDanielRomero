@@ -1,0 +1,14 @@
+%li.list-group-item
+  %span.badge.pull-right
+    -if tweet.favorite_count > 0
+      =tweet.retweet_count
+      .fa.fa-retweet
+    -if tweet.favorite_count > 0
+      =tweet.favorite_count
+      .fa.fa-star
+    %span{title: tweet.created_at}
+      =time_ago_in_words(tweet.created_at)
+      .fa.fa-clock-o
+  =link_to(tweet.url.to_s, target: '_blank') do
+    .fa.fa-external-link
+  = raw auto_link(tweet.full_text)

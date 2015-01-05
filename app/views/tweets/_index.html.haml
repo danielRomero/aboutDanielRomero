@@ -1,0 +1,3 @@
+.tweet_index{id: "tweets_index_#{page}"}
+  -for tweet in tweets
+    =render partial: 'tweets/index_row', locals: { tweet: tweet }

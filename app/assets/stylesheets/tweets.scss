@@ -1,0 +1,7 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#twitter{
+  #twitter_loading_area.fa.fa-circle-o-notch.fa-spin.pull-right{ color: $brand-success; }
+  ul.pager.tweet_pager li a{ cursor: pointer; }
+}
