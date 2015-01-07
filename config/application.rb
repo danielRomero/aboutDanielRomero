@@ -11,7 +11,7 @@ AVATARS = ['https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/0a7/228/39fdd
 LOCALES = ['es', 'en']
 
 if Rails.env == 'production'
-  DOMINIO = "localhost:3000"
+  DOMINIO = "https://danielromero.herokuapp.com"
 else
   DOMINIO = "localhost:3000"
 end
@@ -34,5 +34,7 @@ module About
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.serve_static_files = true
   end
 end

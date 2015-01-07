@@ -1,8 +1,8 @@
 %ul.pager.tweet_pager{id: "twitter_pager_#{page}"}
   -if page > 0
-    %li.older
+    %li.older{data: {page: page - 1}}
       %a{onclick: "window.twitter_index.change_page('#{page - 1}')"}
-        ← Older
+        ="← #{t(:newer)}"
   -if page < (tweets_count/4)
-    %li.newer
-      =link_to('Newer →', tweets_path(page + 1), remote: true, onclick: "$('#twitter_loading_area').fadeIn('slow');")
+    %li.newer{data: {page: page + 1}}
+      =link_to("#{t(:older)} →", tweets_path(I18n.locale.to_s,page + 1), remote: true, onclick: "$('#twitter_loading_area').fadeIn('slow');")

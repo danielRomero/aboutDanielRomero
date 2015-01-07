@@ -12,7 +12,6 @@
  *
  *= require_self
  */
-
 html.daniel_romero{
   position: relative;
   min-height: 100%;
@@ -30,26 +29,63 @@ html.daniel_romero{
     margin-bottom: 60px;
 
     header#application_header{
-
+      .timeline-badge{
+        display: none;
+        color: #FFF;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.4em;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        margin-left: -20px;
+        left: 50%;
+        background-color: #999;
+        z-index: 100;
+        border-radius: 50%;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
     }
     section#application_content{
       .soft_appear .appear_elem{ display: none }
       #about{
-        img{
+        img.img-circle.img-responsive.avatar.pull-right.avatar_image{
           max-width: 150px;
           height: auto;
           margin-top: 25px;
+          display: none;
         }
+
         span.label.skill{
           margin: 2px;
+          display: inline-block;
         }
         span.label.skill:hover{
-          cursor: default;
+          cursor: pointer;
           opacity: .8;
         }
-      }
-      #me .row{
-        margin-bottom: 120px;
+        #me{
+          .row{
+            margin-bottom: 120px;
+            .progress{
+              cursor: pointer;
+              .progress-bar{
+                -webkit-transition : width 1s ease;
+                -moz-transition : width 1s ease;
+                -o-transition : width 1s ease;
+                transition : width 1s ease;
+              }
+            }
+          }
+          #timeline{
+            ul li .timeline-badge{
+            }
+          }
+        }
       }
     }
     footer#application_footer{

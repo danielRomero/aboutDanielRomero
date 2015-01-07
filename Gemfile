@@ -1,19 +1,23 @@
 source 'https://rubygems.org'
-gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'haml'
 gem 'twitter'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'twitter-text'
-
-
-
+gem 'pg'
+group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
+  gem 'dotenv-rails'
+end
+group :production do
+  gem 'rails_12factor'
+  gem 'dalli'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,6 +41,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'passenger'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

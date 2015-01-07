@@ -1,4 +1,14 @@
 %nav.navbar.navbar-default
-  .container
+  .container-fluid
     .navbar-header
-      =link_to('Daniel Romero', root_path, class: 'navbar-brand', onclick: "window.danielromero.scroll_to($('body'))" )
+      =link_to('Daniel Romero', '#', class: 'navbar-brand', onclick: "window.danielromero.scroll_to($('body'))" )
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        -for locale in LOCALES
+          %li{class: I18n.locale.to_s == locale ? 'active' : nil}
+            =link_to(locale, "/#{locale}")
+      %ul.nav.navbar-nav.navbar-center.github_project_link
+        %li.text-center
+          =link_to('https://github.com/danielRomero/aboutDanielRomero') do
+            .fa.fa-code-fork
+            =t(:fork_this_project)

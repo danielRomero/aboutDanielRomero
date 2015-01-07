@@ -1,71 +1,77 @@
 %ul.timeline
   %li
-    .timeline-badge{style: 'top: -40px;'}
+    .timeline-badge.year{style: 'top: -40px;'}
       Año
-  -#####
+  -##### 2014
   %li.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-badge{ class: classes.sample }
-        09
+        14
       .timeline-panel
         .timeline-heading
-          %h4.timeline-title Sistemas de información: ¿Pero esto qué es?
+          %h4.timeline-title=t(:timeline_title_10)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              = Date::MONTHNAMES[9]
+              ='25/7/2014'.to_date.to_s(:short)
         .timeline-body
-          %p Ahí estaba yo en la secretaría de la UAH con una lista de las carreras en las que todavía había plazas.
-          %p Ví muchas ingenierías y alguno de química pero la que me llamó la atención fué "Sistemas de Información". Sería por el nombre, por la chicas del folleto o quizá porque no tenía física en su temario...
-          %p De cualquier modo el primer año me encantó y tuve mi primer contacto con la programación así que decidí darlo todo hasta completarla.
+          %p=t(:timeline_content_10)
+          %hr/
+          =link_to('ß', 'https://betabeers.com/event/2-betabeers-guadalajara-windowsphone-websockets-2049/', class: 'btn btn-primary')
   -#####
   %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
-      .timeline-badge.warning
-        11
-    
       .timeline-panel
         .timeline-heading
-          %h4.timeline-title Curso: Introduccion al desarrollo de videojuegos
+          %h4.timeline-title=t(:timeline_title_9)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              90 horas
+              =time_ago_in_words("5/5/2014")
         .timeline-body
-          %p Proyecto: desarrollo de un videojuego para Windows 7 con XNA y .NET
-          %p Me gustó tanto que me pasé un mes haciendo diferentes juegos de marcianitos con mis amigos.
+          %p=t(:timeline_content_9)
+  -#####
   %li.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-panel
         .timeline-heading
-          %h4.timeline-title Twitter
+          %h4.timeline-title=t(:timeline_title_8)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              = Date::MONTHNAMES[2]
+              ='28/2/2014'.to_date.to_s(:short)
         .timeline-body
-          %p Empecé mis andanzas por esta red social.
-          %p Al principio lo utilizaba para enterarme de cuando no venía un profesor pero luego me dí cuenta de que era una herramienta muy poderosa para mantenerte al tanto de las cosas y compartir de forma rápida información con el mundo.
+          %p=t(:timeline_content_8)
           %hr/
-          =link_to('https://twitter.com/DanielRomeroE', class: 'btn btn-primary') do
-            .fa.fa-twitter
-  -#####
+          =link_to('ß', 'https://betabeers.com/event/1er-betabeers-guadalajara-git-github-admob-beperkcom-1502/', class: 'btn btn-primary')
+  -##### 2013
   %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-badge{ class: classes.sample }
         13
-    
       .timeline-panel
         .timeline-heading
-          %h4.timeline-title Becario programador en beperk.com
+          %h4.timeline-title=t(:timeline_title_7)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              =distance_of_time_in_words("25/8/2013", "25/2/2013")
+              =distance_of_time_in_words("25/8/2013", "5/5/2014")
         .timeline-body
-          %p Durante esta época entre en contacto por primera vez con Ruby on Rails y aprendí a manejar el Framework, descubrí sus bondades y sus defectos conociendo sus puntos fuertes y sus debilidades. Empecé sobretodo en front, pero en el quinto mes ya desarrollaba un sistema de autenticación con Oauth2 para autenticar usuarios en una API.
+          %p=t(:timeline_content_7)
   -#####
   %li.soft_appear{data: {appear: {top: {offset: "0"}}}}
+    .appear_elem
+      .timeline-panel
+        .timeline-heading
+          %h4.timeline-title=t(:timeline_title_6)
+          %p
+            %small.text-muted
+              %i.fa.fa-clock-o
+              =I18n.t("date.month_names")[9]
+        .timeline-body
+          =raw t(:timeline_content_6)
+  -#####
+  %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-panel
         .timeline-heading
@@ -73,81 +79,64 @@
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              = Date::MONTHNAMES[2]
+              =I18n.t("date.month_names")[2]
         .timeline-body
-          %p En el trabajo aprendí las bondades de Git junto con GitHub y las posibilidades que tiene en la gestión de proyectos y la facilidad que ofrece para el desarrollo de software colaborativo.
+          %p=t(:timeline_content_5)
           %hr/
           =link_to('https://github.com/danielRomero', class: 'btn btn-primary') do
             .fa.fa-github
-            
-  -#####
-  %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
-    .appear_elem
-      .timeline-panel
-        .timeline-heading
-          %h4.timeline-title Fin de la carrera!
-          %p
-            %small.text-muted
-              %i.fa.fa-clock-o
-              = Date::MONTHNAMES[9]
-        .timeline-body
-          %p Al fín llegó la hora. Presentar el proyecto de fin de carrera, uno de los momentos claves de mi vida.
-          %p Ahí estaba yo delante del tribuna explicando en 10 minutos el trabajo de un mes. Ni los que me escuchaban sabían de qué hablaba, les sonaban palabras, sabían por donde iban los tiros pero no comprendían la dimensión del trabajo.
-          %p Lo que más impresionó no fué hacer un juego para navegador web multijugador en tiempo real mediante websockets, canvas y otras tecnologías de HTML5 con gestión de usuarios y personalización de los personajes, no. Lo más importante para ellos fué el diseño adaptable, algo muy superficial, pero estuvo divertido.
   -#####
   %li.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-panel
         .timeline-heading
-          %h4.timeline-title Programador interno en beperk.com
+          %h4.timeline-title=t(:timeline_title_4)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              =distance_of_time_in_words("25/8/2013", "5/5/2014")
+              =distance_of_time_in_words("25/8/2013", "25/2/2013")
         .timeline-body
-          %p Durante estos meses trabajé codo con codo con el CTO de la empresa, le dedicaba muchísimas mas horas y por ello tenía mas facil aprender cosas nuevas. Llevamos a cabo la migración de Rails 3 a Rails 4, mejoramos los sistemas de cache de todas las aplicaciones, realizamos tareas de mantenimiento e implantamos nuevas características así como mejoras en la estructuracion de la base de datos mejorando notablemente el rendimiento de las aplicaciones.
-  -#####
+          %p=t(:timeline_content_4)
+  %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
+    .appear_elem
+      .timeline-panel
+        .timeline-heading
+          %h4.timeline-title Twitter
+          %p
+            %small.text-muted
+              %i.fa.fa-clock-o
+              =I18n.t("date.month_names")[2]
+        .timeline-body
+          =raw t(:timeline_content_3)
+          %hr/
+          =link_to('https://twitter.com/DanielRomeroE', class: 'btn btn-primary') do
+            .fa.fa-twitter
+  -##### 2011
+  %li.soft_appear{data: {appear: {top: {offset: "0"}}}}
+    .appear_elem
+      .timeline-badge{ class: classes.sample }
+        11
+      .timeline-panel
+        .timeline-heading
+          %h4.timeline-title=t(:timeline_title_2)
+          %p
+            %small.text-muted
+              %i.fa.fa-clock-o
+              90 horas
+        .timeline-body
+          =raw t(:timeline_content_2)
+  -##### 2009
   %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-badge{ class: classes.sample }
-        14
-    
+        09
       .timeline-panel
         .timeline-heading
-          %h4.timeline-title Primera charla ßetabeers
+          %h4.timeline-title=t(:timeline_title_1)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              28 febrero
+              =I18n.t("date.month_names")[9]
         .timeline-body
-          %p Como iniciativa de Beperk.com y el compromiso que tenía por fomentar la comunicación y el intercambio de conocimiento entre los amantes de la tecnología de la zona de la Alcarria, comenzamos a organizar estas charlas y para cortar el hielo fué el equipo técnico quién empezó con una charla sobre Git + GitHub
-          %hr/
-          =link_to('ß', 'https://betabeers.com/event/1er-betabeers-guadalajara-git-github-admob-beperkcom-1502/', class: 'btn btn-primary')
-  -#####
-  %li.soft_appear{data: {appear: {top: {offset: "0"}}}}
-    .appear_elem
-      .timeline-panel
-        .timeline-heading
-          %h4.timeline-title Encargado del departamento técnico en beperk.com
-          %p
-            %small.text-muted
-              %i.fa.fa-clock-o
-              =time_ago_in_words("5/5/2014")
-        .timeline-body
-          %p En este período he estado al mando del el area tecnica de la empresa tomando decisiones sobre que nuevas características se pueden implantar, el coste en tiempo y la viabilidad de las mismas. Así mismo tambien nos hemos encargado del desarrollo y mantenimiento de las aplicaciones (API REST y cliente web). Personalmente he afrontado varios retos como desarrollar un sistema de pagos con multimoneda a traves de PayPal, reestructurar ciertos aspectos de backend y optimizar el uso de la infraestructura de Heroku y AWS.
-  -#####
-  %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
-    .appear_elem
-      .timeline-panel
-        .timeline-heading
-          %h4.timeline-title Segunda charla ßetabeers
-          %p
-            %small.text-muted
-              %i.fa.fa-clock-o
-              25 julio
-        .timeline-body
-          %p Desde que empezamos con las charlas ßetabeers siempre había querido explicar algo que a mi me llamó muchísimo la atención durante el pryecto de fin de carrera: Los Websockets, le veo mucho potencial y quería explicar de forma práctica mediante una implementación de un chat las posibilidades de utilizar esta tecnología. Nos lo pasamos como enanos escribiendo todos los asistentes en el mismo chat durante la charla.
-          %hr/
-          =link_to('ß', 'https://betabeers.com/event/2-betabeers-guadalajara-windowsphone-websockets-2049/', class: 'btn btn-primary')
-            
+          =raw t(:timeline_content_1)       
 .clearfix

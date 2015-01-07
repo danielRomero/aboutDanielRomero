@@ -1,6 +1,6 @@
 %li.list-group-item
   %span.badge.pull-right
-    -if tweet.favorite_count > 0
+    -if tweet.retweet_count > 0
       =tweet.retweet_count
       .fa.fa-retweet
     -if tweet.favorite_count > 0

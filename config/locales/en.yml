@@ -1,25 +1,40 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
   loading: "Loading..."
-  meta_description: "Página web personal de Daniel Romero Esteban"
+  degree_title: "Graduated in Information Systems"
+  spain: "Spain"
+  meta_description: "Daniel Romero Esteban personal website"
+  meta_keywords: "Daniel, Romero, Daniel Romero, about, developer, web developer, backend, backend developer, HTML, CSS, JavaScript, Ruby, Ruby on Rails, back-end, back-end developer"
+
+  timeline_title_1: "Information Systems"
+  timeline_content_1: "<p>There I was at UAH deciding what career should I choose</p> <p>Among many others I selected information systems, maybe it was not the best but had computers and girls</p> <p>The first year I loved it and although there weren't so many girls like the brochure said, I fell in love by programming</p>"
+
+  timeline_title_2: "Course: Introduction to game development"
+  timeline_content_2: "<p>Project: game development with XNA and .NET for Windows 7</p><p>I liked it so much that I spent one month doing different games of little martians with my friends.</p>"
+
+  timeline_content_3: "<p>My first steps with this social network</p><p>At first I used it to find out when teachers not came but then I realized it was a very powerful tool to keep abreast of things and quickly share information with the world.</p>"
+
+  timeline_title_4: "Fellow developer at beperk.com"
+  timeline_content_4: "During this time I had the first contact with Ruby on Rails and learned to manage the Framework, I discovered its benefits and shortcomings knowing your strengths and weaknesses. I started especially in front, but in the fifth month I already developed a OAuth2 authentication system for authenticating users in an API."
+  
+  timeline_content_5: "At work I learned the benefits of Git and GitHub with the possibilities in project management and facility that provides for the groupware development."
+
+  timeline_title_6: "End of Information Systems degree"
+  timeline_content_6: "<p>At last it was time. Present the final degree project, one of the most important moments of my life.</p> <p>There I was, explaining in 10 minutes the work a month. Nobody of those who listened to me knew whereof I was speaking: new things, new ideas, new technologies... They not understand the dimension of work.</p> <p>What impressed them was not that I made a multiplayer browser game in real time using websockets, canvas and other HTML5 technologies with user management and character customization, no. The most important thing for them was the adaptive design, very superficial, but it was fun.</p>"
+  
+  timeline_title_7: "Programador interno en beperk.com"
+
+  timeline_content_7: "During these months I worked closely with the CTO of the company and it was easier to learn new things. We perform migration from Rails 3 to 4, cache improvements systems for all applications, perform maintenance tasks and implement new features and improvements in the structuring of the database dramatically improving application performance."
+
+  timeline_title_8: "First talk ßetabeers"
+  timeline_content_8: "As Beperk.com initiative and commitment to foster communication and exchange of knowledge among technology enthusiasts in the area of the Alcarria, we started organizing these talks and was the technical team who started with a talk on Git + GitHub"
+
+  timeline_title_9: "Manager for the Technical Department en beperk.com"
+  timeline_content_9: "In this period I have been in charge of the technical area of the company making decisions about what new features can be implemented, the cost in time and viability of the same. Likewise I'm also responsible for the development and maintenance of applications (API REST and Web client). I personally have faced several challenges such as developing a multicurrency payment system through PayPal, restructure certain aspects of backend and optimize the use of infrastructure of AWS and Heroku."
+  
+  timeline_title_10: "Second talk ßetabeers"
+  timeline_content_10: "Since we started with ßetabeers talks I had always wanted to explain something that caught me a lot of attention during final degree project: The Websockets, I see much potential and wanted to explain in a practical way by implementing a chat, the possibilities use this technology. We had fun all participants writing in the same chat during the talk."
+  social_network_integration: "Social network integration"
+  newer: "Newer"
+  older: "Older"
+  fork_this_project: "You can view the source code of this page on GitHub"

@@ -36,6 +36,7 @@ module TweetsHelper
       key = ['v1', page, 'tweets_page'].join('/')
       if (tweets_page = cache_read(key)).nil?
         tweets_page = cache_write(key, twitter_connection.user_timeline(options))
+        sleep(2)
       end
       tweets_page
     end

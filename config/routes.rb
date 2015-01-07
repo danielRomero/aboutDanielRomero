@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root 'application#index'
   scope "(:locale)", locale: /en|es/ do
     get '/' => 'application#index'
+    get '/tweets/:page', to: 'tweets#index', as: 'tweets'
   end
-  get '/tweets/:page', to: 'tweets#index', as: 'tweets'
+  get '/sitemap', to: 'application#sitemap', as: 'sitemap', defaults: { format: 'xml' }
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
