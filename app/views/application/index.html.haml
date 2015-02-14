@@ -1,3 +1,4 @@
+-classes = ['default', 'primary', 'success', 'info', 'warning', 'danger']
 %div{:itemscope => "", :itemtype => "http://data-vocabulary.org/Person"}
   #about
     #me
@@ -15,8 +16,7 @@
               %span{:itemprop => "locality"} Guadalajara
               %span{:itemprop => "region"} Castilla la mancha
               %span{:itemprop => "country"}=t(:spain)
-          .col-xs-12.col-sm-12.col-md-8.col-lg-8
-            -classes = ['default', 'primary', 'success', 'info', 'warning', 'danger']
+          .col-xs-12.col-sm-12.col-md-8.col-lg-8 
             %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 98 } } Ruby on Rails
             %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 78 } } AWS
             %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Postgresql
@@ -35,7 +35,12 @@
             .progress{style: 'display: none'}
               .progress-bar.progress-bar-success{aria: {valuemax: '100', valuemin: '0', valuenow: '0'}, role: 'progressbar', style: 'width: 0%;'}
         .hidden-xs.col-sm-3.col-md-2.col-lg-2
-          =image_tag(AVATARS.sample, class: 'img-circle img-responsive avatar pull-right avatar_image', alt: 'Daniel Romero Esteban')
+          .relative_avatar_holder{style: 'position: relative'}
+            =image_tag(AVATARS.sample, class: 'img-circle img-responsive avatar pull-right avatar_image', alt: 'Daniel Romero Esteban')
+            %canvas#skill_canvas.avatar_skill{width: '152px', height: '152px;'}
+            .skill_under_avatar_info_holder.text-center
+              #skill_canvas_percent
+              #skill_canvas_caption
       #timeline
         =render partial: 'application/timeline', locals: {classes: classes}
     %hr

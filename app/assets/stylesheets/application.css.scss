@@ -53,11 +53,29 @@ html.daniel_romero{
     section#application_content{
       .soft_appear .appear_elem{ display: none }
       #about{
-        img.img-circle.img-responsive.avatar.pull-right.avatar_image{
-          max-width: 150px;
-          height: auto;
-          margin-top: 25px;
-          display: none;
+        .relative_avatar_holder{
+          position: relative;
+          img.img-circle.img-responsive.avatar.pull-right.avatar_image{
+            max-width: 150px;
+            height: auto;
+            margin-top: 25px;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+          }
+          canvas.avatar_skill{
+            margin-top: 25px;
+            border-radius: 100px;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          .skill_under_avatar_info_holder{
+            top: 190px;
+            position: absolute;
+            width: 100%;
+          }
         }
 
         span.label.skill{

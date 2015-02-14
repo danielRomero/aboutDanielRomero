@@ -13,11 +13,12 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
-#= require_tree .
 #= require bootstrap-sprockets
+#= require_tree .
+#= require 'jcanvas'
 
 window.danielromero = {
-  css_classes: ['default', 'primary', 'success', 'info', 'warning', 'danger']
+  css_classes: ['default', 'primary', 'success', 'info', 'warning', 'danger'],
 }
 window.danielromero.scroll_to = (elem) ->
   $("html, body").animate
@@ -30,9 +31,6 @@ window.danielromero.ready = ->
     ga('create', 'UA-58306488-1', 'auto')
     ga('require', 'linkid', 'linkid.js')
     ga('send', 'pageview');
-
-  # appear for avatar
-  $('#about #me img.img-circle.img-responsive.avatar.pull-right.avatar_image').fadeIn 2000
 
   # soft appear for timeline boxes
   window.danielromero.soft_appear()
@@ -99,23 +97,35 @@ window.danielromero.soft_appear = () ->
   $.force_appear()
 
 window.danielromero.skill_click = (elem) ->
-  $('#about #me .progress').fadeIn('slow')
-  
-  css_class = ''
-  for elem_class in elem.attr('class').split(/-| /)
-    if window.danielromero.css_classes.indexOf(elem_class) > 0
-      css_class = elem_class
-  
-  progress_bar = $('#about #me .progress .progress-bar')
-
-  progress_bar.html("#{elem.attr('data-percent')}% #{elem.html()}")
-  
-  progress_bar.width("#{elem.attr('data-percent')}%")
-  progress_bar.attr('aria-valuenow', "#{elem.attr('data-percent')}")
-  
-  progress_bar.removeClass()
-  
-  progress_bar.addClass("progress-bar progress-bar-#{css_class} progress-bar-striped active")
+  percent = elem.attr 'data-percent'
+  window.danielromero.draw_skill_char(percent)
+  $('#skill_canvas_percent').html("#{percent}%")
+  $('#skill_canvas_caption').html(elem.html())
+window.danielromero.draw_skill_char = (percent) ->
+  $('#skill_canvas').drawArc
+    layer: true
+    index: 0
+    strokeStyle: '#096'
+    strokeWidth: 5
+    x: 1
+    y: 1
+    fromCenter: false
+    radius: 75
+  $('#skill_canvas').drawArc
+    layer: true
+    name: 'my_arc'
+    strokeStyle: '#5BC0DE'
+    strokeWidth: 10
+    x: 1
+    y: 1
+    fromCenter: false
+    radius: 75
+    start: 0
+    end: 0
+  $('#skill_canvas').animateLayer 'my_arc', {
+    start: 0
+    end: parseInt(3.6 * percent)
+  }, 'slow', 'swing'
 
 # if turbolinks are not enabled
 $(document).ready(window.danielromero.ready)
