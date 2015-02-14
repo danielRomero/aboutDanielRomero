@@ -18,7 +18,7 @@
 #= require 'jcanvas'
 
 window.danielromero = {
-  css_classes: ['default', 'primary', 'success', 'info', 'warning', 'danger'],
+  css_classes: ['default', 'primary', 'success', 'info', 'warning', 'danger']
 }
 window.danielromero.scroll_to = (elem) ->
   $("html, body").animate
