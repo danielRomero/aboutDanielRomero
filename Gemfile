@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'haml'
-gem 'twitter'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'twitter'
 gem 'twitter-text'
+gem 'oauth'
+gem 'oauth2'
 gem 'pg'
+# gem 'unirest'
 gem 'jquery-jcanvas-rails', git: "https://github.com/danielRomero/jquery-jcanvas-rails.git"
 group :development, :test do
   gem 'dotenv-rails'

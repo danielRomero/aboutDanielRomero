@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   
+  def contact
+    session[:prueba] = "ASDIPJAS ans dkj asd"
+  end
+
   private
     def set_locale
       if params[:locale].blank?
