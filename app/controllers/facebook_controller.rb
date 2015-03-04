@@ -10,7 +10,7 @@ class FacebookController < ApplicationController
         }
         reset_session
         session[:user] = user
-        render template: 'application/contact', locals: {user: user}
+        render template: 'application/contact', locals: { user: user }
       rescue
         redirect_to request.referer
       end
