@@ -1,12 +1,26 @@
 en:
   hello: "Hello world"
   loading: "Loading..."
+  contact: "Contact"
   degree_title: "Graduated in Information Systems"
+  disconnect: "Disconnect %{name}"
   spain: "Spain"
+  not_valid_email: "Not valid email"
+  not_valid_params: "Not valid params"
+  message_sent: "Message sent"
   meta_description: "Daniel Romero Esteban personal website"
   meta_keywords: "Daniel, Romero, Daniel Romero, about, developer, web developer, backend, backend developer, HTML, CSS, JavaScript, Ruby, Ruby on Rails, back-end, back-end developer"
 
   write_message: "Write message"
+
+  user_logged_in: "User logged in succesfully"
+
+  session_logged_out: "User logged out succesfully"
+
+  social_login_error: "Error while connect with social network"
+
+  contact_login: "Log in with your social network to leave me a message"
+  login_data: "I'm not store your data. Everything will be deleted once you close the browser or close your session"
 
   timeline_title_1: "Information Systems"
   timeline_content_1: "<p>There I was at UAH deciding what career should I choose</p> <p>Among many others I selected information systems, maybe it was not the best but had computers and girls</p> <p>The first year I loved it and although there weren't so many girls like the brochure said, I fell in love by programming</p>"
@@ -18,12 +32,12 @@ en:
 
   timeline_title_4: "Fellow developer at beperk.com"
   timeline_content_4: "During this time I had the first contact with Ruby on Rails and learned to manage the Framework, I discovered its benefits and shortcomings knowing your strengths and weaknesses. I started especially in front, but in the fifth month I already developed a OAuth2 authentication system for authenticating users in an API."
-  
+
   timeline_content_5: "At work I learned the benefits of Git and GitHub with the possibilities in project management and facility that provides for the groupware development."
 
   timeline_title_6: "End of Information Systems degree"
   timeline_content_6: "<p>At last it was time. Present the final degree project, one of the most important moments of my life.</p> <p>There I was, explaining in 10 minutes the work a month. Nobody of those who listened to me knew whereof I was speaking: new things, new ideas, new technologies... They not understand the dimension of work.</p> <p>What impressed them was not that I made a multiplayer browser game in real time using websockets, canvas and other HTML5 technologies with user management and character customization, no. The most important thing for them was the adaptive design, very superficial, but it was fun.</p>"
-  
+
   timeline_title_7: "Programador interno en beperk.com"
 
   timeline_content_7: "During these months I worked closely with the CTO of the company and it was easier to learn new things. We perform migration from Rails 3 to 4, cache improvements systems for all applications, perform maintenance tasks and implement new features and improvements in the structuring of the database dramatically improving application performance."
@@ -33,7 +47,7 @@ en:
 
   timeline_title_9: "Manager for the Technical Department en beperk.com"
   timeline_content_9: "In this period I have been in charge of the technical area of the company making decisions about what new features can be implemented, the cost in time and viability of the same. Likewise I'm also responsible for the development and maintenance of applications (API REST and Web client). I personally have faced several challenges such as developing a multicurrency payment system through PayPal, restructure certain aspects of backend and optimize the use of infrastructure of AWS and Heroku."
-  
+
   timeline_title_10: "Second talk ßetabeers"
   timeline_content_10: "Since we started with ßetabeers talks I had always wanted to explain something that caught me a lot of attention during final degree project: The Websockets, I see much potential and wanted to explain in a practical way by implementing a chat, the possibilities use this technology. We had fun all participants writing in the same chat during the talk."
   social_network_integration: "Social network integration"

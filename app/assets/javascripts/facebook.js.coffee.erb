@@ -1,55 +1,56 @@
-# This is called with the results from from FB.getLoginStatus().
-window.facebook = {
-  response : null
-}
-statusChangeCallback = (response) ->
-  if response.status == 'connected'
-    testAPI()
-  return
-
-checkLoginState = ->
-  FB.getLoginStatus (response) ->
-    statusChangeCallback response
-    return
-  return
-
-# Here we run a very simple test of the Graph API after login is
-# successful.  See statusChangeCallback() for when this call is made.
-
-testAPI = ->
-  FB.api '/me', (response) ->
-    window.facebook.response = $.param(response)
-    getAvatar()
-    return
-  return
-
-getAvatar = ->
-  FB.api '/me?fields=picture.type(normal)', (response) ->
-    window.facebook.response = window.facebook.response + $.param(response)
-    $.post '/authenticate_facebook.js?' + window.facebook.response
-    return
-  return
+window.facebook = {}
 
 window.fbAsyncInit = ->
   FB.init
     appId: "<%= ENV['FACEBOOK_APP_ID'] %>"
     cookie: true
     xfbml: true
+    status: true
     version: 'v2.1'
-  FB.getLoginStatus (response) ->
-    statusChangeCallback response
+  return
+
+window.facebook.initialize = ->
+  ((d) ->
+    js = undefined
+    id = 'facebook-jssdk'
+    ref = d.getElementsByTagName('script')[0]
+    if d.getElementById(id)
+      return
+    js = d.createElement('script')
+    js.id = id
+    js.async = true
+    js.src = '//connect.facebook.net/en_US/all.js'
+    ref.parentNode.insertBefore js, ref
+    return
+  ) document
+  
+
+window.facebook.logout = ->
+  FB.logout (response) ->
+    $.getScript '/clear_session.js'
     return
   return
 
-# Load the SDK asynchronously
-((d, s, id) ->
-  js = undefined
-  fjs = d.getElementsByTagName(s)[0]
-  if d.getElementById(id)
+window.facebook.login = ->
+  FB.login ((response) ->
+    window.facebook.get_profile()
     return
-  js = d.createElement(s)
-  js.id = id
-  js.src = '//connect.facebook.net/en_US/sdk.js'
-  fjs.parentNode.insertBefore js, fjs
+  ), scope: 'public_profile,email'
   return
-) document, 'script', 'facebook-jssdk'
+
+window.facebook.get_picture = ->
+  FB.api '/me?fields=picture.type(normal)', (response) ->
+    $("#facebook_form input[name='avatar']").val(response.picture.data.url)
+    $('#facebook_form').submit()
+    return
+  return
+
+window.facebook.get_profile = ->
+  FB.api '/me', (response) ->
+    $("#facebook_form input[name='first_name']").val(response.first_name)
+    $("#facebook_form input[name='last_name']").val(response.last_name)
+    $("#facebook_form input[name='email']").val(response.email)
+    $("#facebook_form input[name='id']").val(response.id)
+    window.facebook.get_picture()
+    return
+  return

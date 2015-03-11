@@ -1,22 +1,26 @@
 class FacebookController < ApplicationController
 
   def authenticate
-    if params[:id] and params[:email] and params[:first_name] and params[:picture]
+    if params[:id] and params[:email] and params[:first_name] and params[:avatar]
       begin
         user = {
-          avatar: params[:picture][:data][:url],
+          avatar: params[:avatar],
           name: params[:first_name] + params[:last_name],
-          email: params[:email]
+          email: params[:email],
+          id: params[:id],
+          social: 'facebook'
         }
         reset_session
         session[:user] = user
-        render template: 'application/contact', locals: { user: user }
-      rescue
-        redirect_to request.referer
+        flash[:success] = t(:user_logged_in)
+      rescue Exception => e
+        Rollbar.error(e)
+        flash[:error] = t(:social_login_error)
       end
     else
-      redirect_to request.referer
+      flash[:error] = t(:social_login_error)
     end
+    redirect_to contact_path(I18n.locale)
   end
 
 end

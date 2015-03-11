@@ -1,0 +1,27 @@
+#contact
+  -if session[:user]
+    =render partial: 'contact/contact', locals: { user: session[:user] }
+  -else
+    .jumbotron
+      .container
+        %h1=t(:contact).capitalize
+        %p=t(:contact_login)
+        =link_to(authenticate_twitter_path, class: 'btn btn-primary', 'data-no-turbolink' => true) do
+          .fa.fa-twitter
+        =link_to(authenticate_google_path, class: 'btn btn-primary','data-no-turbolink' => true) do
+          .fa.fa-google
+        =link_to(authenticate_github_path, class: 'btn btn-primary', 'data-no-turbolink' => true) do
+          .fa.fa-github
+        .btn.btn-primary{onclick: "window.facebook.login();"}
+          .fa.fa-facebook
+        .hidden
+          =form_tag('/authenticate_facebook', method: :post, id: 'facebook_form') do
+            =hidden_field_tag :id
+            =hidden_field_tag :avatar
+            =hidden_field_tag :first_name
+            =hidden_field_tag :last_name
+            =hidden_field_tag :email
+        :javascript
+          window.facebook.initialize();
+        %br
+        %small=t(:login_data)

@@ -1,8 +1,8 @@
 .row
   .center-block.text-center
-    =image_tag user[:avatar], class: 'img-circle'
+    =image_tag user[:avatar], class: 'img-circle', style: 'max-width: 190px; height: auto; max-height: 190px;'
     %h3=user[:name]
-    =form_tag sitemap_path do
+    =form_tag(send_message_path, method: :put, authenticity_token: true) do
       .col-xs-12.col-sm-12.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3
         .form-group
           =label_tag 'email'
@@ -10,5 +10,5 @@
       .col-xs-12.col-sm-12.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3
         .form-group
           =label_tag t(:write_message)
-          =text_area_tag 'text', nil, placeholder: t(:write_message), class: 'form-control', required: true
+          =text_area_tag 'message', session[:message], placeholder: t(:write_message), class: 'form-control', required: true
         =submit_tag 'Enviar', class: 'btn btn-primary'

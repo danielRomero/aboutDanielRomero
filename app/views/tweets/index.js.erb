@@ -9,3 +9,5 @@ if ($("#twitter_pager_<%= page - 1%>").length) {
 }
 
 $('#twitter ul.list-group').append("<%= j render(partial: 'tweets/index', locals: { tweets: tweets, page: page }) %>");
+
+$('#flashes').replaceWith("<%= j render(partial: 'application/flashes') %>")

@@ -10,7 +10,7 @@ class TwitterController < ApplicationController
     :authorize_path     => "/oauth/authenticate"
     })
     
-    if params["oauth_token"].nil?
+    if params[:oauth_token].nil?
       # pido permisos
       callback_url = authenticate_twitter_url
       
@@ -20,28 +20,33 @@ class TwitterController < ApplicationController
 
     else
       # pido los datos
-      request_token = OAuth::RequestToken.new(@consumer, session[:request_token]['token'], session[:request_token]['secret'])
+      request_token = OAuth::RequestToken.new(@consumer, session[:request_token].token, session[:request_token].secret)
       begin
         access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
         tw_user_request = access_token.get('https://api.twitter.com/1.1/account/verify_credentials.json')
-        
+
         tw_user = JSON.parse(tw_user_request.body).to_hash.symbolize_keys
+        tw_user[:profile_image_url].slice!('_normal') if tw_user[:profile_image_url]
         if tw_user[:name]
           user = {
-            avatar: tw_user[:profile_image_url].slice!('_normal'),
+            avatar: tw_user[:profile_image_url],
             name: tw_user[:name],
             location: tw_user[:location],
             link: "https://twitter.com/#{tw_user[:screen_name]}",
-            email: tw_user[:email]
+            email: tw_user[:email],
+            social: 'twitter'
           }
+          reset_session
           session[:user] = user
-          render template: 'application/contact', locals: { user: user }
+          flash[:success] = t(:user_logged_in)
         else
-          redirect_to contact_path
+          flash[:error] = t(:social_login_error)
         end
-      rescue
-        redirect_to contact_path
+      rescue Exception => e
+        Rollbar.error(e)
+        flash[:error] = t(:social_login_error)
       end
+      redirect_to contact_path(I18n.locale)
     end
   end
 

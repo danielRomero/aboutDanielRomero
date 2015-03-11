@@ -6,7 +6,7 @@
       %ul.nav.navbar-nav.navbar-right
         -for locale in LOCALES
           %li{class: I18n.locale.to_s == locale ? 'active' : nil}
-            =link_to(locale, "/#{locale}")
+            =link_to(locale, change_locale_path(locale))
       %ul.nav.navbar-nav.navbar-center.github_project_link
         %li.text-center
           =link_to('https://github.com/danielRomero/aboutDanielRomero') do

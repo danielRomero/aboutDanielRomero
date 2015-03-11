@@ -1,17 +1,27 @@
 es:
   hello: "Hello world"
   loading: "Cargando..."
+  contact: "Contacto"
   degree_title: "Graduado en Sistemas de Información"
+  disconnect: "Desconectar %{name}"
   spain: "España"
+  not_valid_email: "Email no válido"
+  not_valid_params: "Parámetros no válidos"
+  message_sent: "Mensaje enviado"
   meta_description: "Página web personal de Daniel Romero Esteban"
   meta_keywords: "Daniel, Romero, Daniel Romero, currículum, about, sobre, developer, web developer, backend, backend developer, HTML, CSS, JavaScript, Ruby, Ruby on Rails, back-end, back-end developer"
 
   write_message: "Escribe tu mensaje"
 
-  contact: "contacto"
+  user_logged_in: "Sesión iniciada con éxito"
+
+  session_logged_out: "Sesión cerrada con éxito"
+
+  social_login_error: "Error conectando con la red social"
+
   contact_login: "Inicia sesión con tu red social para poder dejarme un mensaje"
-  login_data: "No se almacenará absolutamente ningún dato. Todo será borrado una vez cierres el navegador"
-  
+  login_data: "No se almacenará absolutamente ningún dato. Todo será borrado una vez cierres el navegador o cierres sesión"
+
   timeline_title_1: "Sistemas de información: ¿Pero esto qué es?"
   timeline_content_1: "<p>Ahí estaba yo en la secretaría de la UAH con una lista de las carreras en las que todavía había plazas.</p> <p>Ví muchas ingenierías y alguno de química pero la que me llamó la atención fué \"Sistemas de Información\". Sería por el nombre, por la chicas del folleto o quizá porque no tenía física en su temario...</p> <p>De cualquier modo el primer año me encantó y tuve mi primer contacto con la programación así que decidí darlo todo hasta completarla.</p>"
 
@@ -22,7 +32,7 @@ es:
 
   timeline_title_4: "Becario programador en beperk.com"
   timeline_content_4: "Durante esta época entre en contacto por primera vez con Ruby on Rails y aprendí a manejar el Framework, descubrí sus bondades y sus defectos conociendo sus puntos fuertes y sus debilidades. Empecé sobretodo en front, pero en el quinto mes ya desarrollaba un sistema de autenticación con Oauth2 para autenticar usuarios en una API."
-  
+
   timeline_content_5: "En el trabajo aprendí las bondades de Git junto con GitHub y las posibilidades que tiene en la gestión de proyectos y la facilidad que ofrece para el desarrollo de software colaborativo."
 
   timeline_title_6: "Fin de la carrera!"

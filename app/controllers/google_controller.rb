@@ -17,16 +17,21 @@ class GoogleController < ApplicationController
           user = {
             avatar: response[:picture],
             name: response[:name],
-            email: response[:email]
+            email: response[:email],
+            id: response[:id],
+            social: 'google'
           }
+          reset_session
           session[:user] = user
-          render template: 'application/contact', locals: { user: user }
+          flash[:success] = t(:user_logged_in)
         else
-          redirect_to contact_path
+          flash[:error] = t(:social_login_error)
         end
-      rescue
-        redirect_to contact_path
+      rescue Exception => e
+        Rollbar.error(e)
+        flash[:error] = t(:social_login_error)
       end
+      redirect_to contact_path(I18n.locale)
     end
   end
 

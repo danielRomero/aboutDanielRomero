@@ -8,7 +8,11 @@ gem 'twitter-text'
 gem 'oauth'
 gem 'oauth2'
 gem 'pg'
+gem 'rollbar'
+gem 'newrelic_rpm'
 # gem 'unirest'
+gem 'mandrill-api'
+gem 'activerecord-session_store'
 gem 'jquery-jcanvas-rails', git: "https://github.com/danielRomero/jquery-jcanvas-rails.git"
 group :development, :test do
   gem 'dotenv-rails'

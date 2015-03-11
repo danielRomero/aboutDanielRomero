@@ -64,6 +64,9 @@
 
   %body
     %header#application_header=render partial: 'application/header'
-    %section.container#application_content= yield
+    %section.container#application_content
+      #flashes
+        =render partial: 'application/flashes'
+      = yield
     %footer#application_footer=render partial: 'application/footer'
     <a href="https://plus.google.com/+DanielRomeroe" rel="publisher"></a>

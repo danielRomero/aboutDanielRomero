@@ -55,6 +55,12 @@ window.danielromero.ready = ->
       ga('send', 'event', 'button', 'click', "to page #{$(this).parent('li').attr('data-page')}")
     return
 
+  # click event to track all 'btn' class
+  $( document ).on 'click', '.btn', ->
+    if typeof(ga) == "function"
+      ga('send', 'event', 'button', 'click', "button #{$(this).html()}")
+    return
+
   # on scroll year bubbles are placed on header
   $(window).scroll ->
     offset = $(window).scrollTop()

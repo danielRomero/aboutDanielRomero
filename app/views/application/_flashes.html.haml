@@ -1,0 +1,31 @@
+-flash.each do |name, msg|
+  -case name
+    -when 'success'
+      .alert.alert-success.alert-dismissible{ role: 'alert' }
+        %button.close{ aria: { label: 'Close' }, data: { dismiss: 'alert' }, type: 'button', onclick: "$(this).closest('.alert').remove();" }
+          %span{ aria: {hidden: 'true'} } ×
+        =msg
+    -when 'notice'
+      .alert.alert-info.alert-dismissible{ role: 'alert' }
+        %button.close{ aria: { label: 'Close' }, data: { dismiss: 'alert' }, type: 'button', onclick: "$(this).closest('.alert').remove();" }
+          %span{ aria: {hidden: 'true'} } ×
+        =msg
+    -when 'warning'
+      .alert.alert-warning.alert-dismissible{ role: 'alert' }
+        %button.close{ aria: { label: 'Close' }, data: { dismiss: 'alert' }, type: 'button', onclick: "$(this).closest('.alert').remove();" }
+          %span{ aria: {hidden: 'true'} } ×
+        =msg
+    -when 'error', 'danger'
+      .alert.alert-danger.alert-dismissible{ role: 'alert' }
+        %button.close{ aria: { label: 'Close' }, data: { dismiss: 'alert' }, type: 'button', onclick: "$(this).closest('.alert').remove();" }
+          %span{ aria: {hidden: 'true'} } ×
+        =msg
+    -else
+      .alert.alert-warning.alert-dismissible{ role: 'alert' }
+        %button.close{ aria: { label: 'Close' }, data: { dismiss: 'alert' }, type: 'button', onclick: "$(this).closest('.alert').remove();" }
+          %span{ aria: {hidden: 'true'} } ×
+        =msg
+:javascript
+  setTimeout(function(){ $('.alert.alert-dismissible').not('.alert-warning').not('.alert-danger').remove(); }, 6000);
+
+-flash.discard

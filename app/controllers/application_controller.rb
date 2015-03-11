@@ -4,9 +4,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_locale
-  
-  def contact
-    session[:prueba] = "ASDIPJAS ans dkj asd"
+
+  def clear_session
+    reset_session
+    flash[:notice] = t(:session_logged_out)
+    redirect_to root_path(I18n.locale)
+  end
+
+  def change_locale
+    redir = []
+    request.referer.split('/').each do |a|
+      a = I18n.locale if LOCALES.include?(a)
+      redir << a
+    end
+    redirect_to redir.join('/')
   end
 
   private

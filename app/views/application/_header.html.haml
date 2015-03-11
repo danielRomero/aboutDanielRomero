@@ -4,7 +4,14 @@
       =link_to('Daniel Romero', root_path, class: 'navbar-brand', onclick: "window.danielromero.scroll_to($('body'))" )
     .navbar-collapse.collapse.hidden-xs
       .timeline-badge
-        09
       %ul.nav.navbar-nav.navbar-right
         %li
-          =link_to('contact', contact_path(I18n.locale))
+          =link_to(t(:contact).capitalize, contact_path(I18n.locale))
+        -if session[:user]
+          %li
+            -if session[:user][:social] == 'facebook'
+              =link_to(clear_session_path, onclick: "FB.logout(function(response){ $.getScript(#{clear_session_path(format: :js)}); });") do
+                =t(:disconnect, name: session[:user][:name])
+            -else
+              =link_to(clear_session_path) do
+                =t(:disconnect, name: session[:user][:name])
