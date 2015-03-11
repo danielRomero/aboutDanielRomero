@@ -15,6 +15,7 @@ if Rails.env == 'production'
 else
   DOMINIO = "localhost:3000"
 end
+LAST_MOD_SITEMAP=DateTime.parse('11/3/2015').utc
 
 module About
   class Application < Rails::Application
