@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'application#index'
   scope "(:locale)", locale: /en|es/ do
-    get '/', to: 'application#index'
+    get '/', to: 'application#index', as: 'root_locale'
     get '/change_locale', to: 'application#change_locale'
     get 'contact', to: 'contact#index'
     get '/tweets/:page', to: 'tweets#index', as: 'tweets'

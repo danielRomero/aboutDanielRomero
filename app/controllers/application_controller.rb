@@ -8,17 +8,20 @@ class ApplicationController < ActionController::Base
   def clear_session
     reset_session
     flash[:notice] = t(:session_logged_out)
-    redirect_to root_path(I18n.locale)
+    redirect_to root_locale_path(I18n.locale)
   end
 
   def change_locale
-    #raise request.inspect
-    redir = []
-    request.referer.split('/').each do |a|
-      a = I18n.locale if LOCALES.include?(a)
-      redir << a
+    if request.referer
+      redir = []
+      request.referer.split('/').each do |a|
+        a = I18n.locale if LOCALES.include?(a)
+        redir << a
+      end
+      redirect_to "#{redir.join('/')}?locale=#{I18n.locale}"
+    else
+      redirect_to root_locale_path(I18n.locale)
     end
-    redirect_to "#{redir.join('/')}?locale=#{I18n.locale}"
   end
 
   private
