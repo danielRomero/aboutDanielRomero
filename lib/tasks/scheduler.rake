@@ -18,3 +18,19 @@ task :update_twitter_data => :environment do
   following_count
   puts "done."
 end
+
+desc "This task is called by the Heroku scheduler add-on every day at 5:00 UTC"
+task :wake_up => :environment do
+  # Apago el servidor a las 6 AM, luego lo levanto
+  heroku = Heroku::API.new(api_key: ENV['HEROKU_API_KEY'])
+  app = 'danielromero'
+
+  processes = heroku.get_ps(app).body.length
+  if [5,6].include?(Time.now.hour)
+    heroku.post_ps_scale(app, 'web', 0) if processes > 0
+  else
+    require 'unirest'
+    Unirest.get "http://danielromero.herokuapp.com/"
+    heroku.post_ps_scale(app, 'web', 1) if processes == 0
+  end
+end

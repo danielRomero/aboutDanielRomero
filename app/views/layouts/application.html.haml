@@ -70,3 +70,12 @@
       = yield
     %footer#application_footer=render partial: 'application/footer'
     <a href="https://plus.google.com/+DanielRomeroe" rel="publisher"></a>
+
+    -if session[:track_token]
+      :javascript
+        if (typeof ga === "function") {
+          ga('create', 'UA-58306488-1', 'auto');
+          ga('require', 'linkid', 'linkid.js');
+          ga('send', 'event', 'button', 'referal', "from #{session[:track_token]}"
+        }
+      -session.delete(:track_token)

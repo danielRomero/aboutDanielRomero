@@ -22,6 +22,10 @@ group :production do
   gem 'dalli'
 end
 
+gem 'platform-api'
+gem 'heroku-api'
+gem 'unirest'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets

@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
+  def index
+    if params[:token]
+      session[:track_token] = Base64.decode64 params[:token]
+    else
+      session.delete(:track_token)
+    end
+  end
+
   def clear_session
     reset_session
     flash[:notice] = t(:session_logged_out)

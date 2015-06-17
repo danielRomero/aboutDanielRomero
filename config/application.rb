@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require 'dotenv'
+Dotenv.load
+
 AVATARS = ['https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/0a7/228/39fddd5.jpg', 'https://pbs.twimg.com/profile_images/485074599739019264/hSHRCnH2.jpeg']
 
 LOCALES = ['es', 'en']
@@ -35,5 +38,6 @@ module About
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
   end
 end

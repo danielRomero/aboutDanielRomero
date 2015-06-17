@@ -42,20 +42,13 @@ window.danielromero.ready = ->
       ga('send', 'event', 'button', 'click', "skill #{$(this).html()}")
     return
 
-  # click event for hide progress bar
-  $('#about #me .progress').on "click", (event) ->
-    $(this).fadeOut()
-    if typeof(ga) == "function"
-      ga('send', 'event', 'button', 'click', 'progress bar')
-    return
-
   # click event to track twitter pager buttons
   $( document ).on 'click', '#about #twitter ul.pager.tweet_pager li a', ->
     if typeof(ga) == "function"
       ga('send', 'event', 'button', 'click', "to page #{$(this).parent('li').attr('data-page')}")
     return
 
-  # click event to track all 'btn' class
+  # click event to track all 'btn' classes
   $( document ).on 'click', '.btn', ->
     if typeof(ga) == "function"
       ga('send', 'event', 'button', 'click', "button #{$(this).html()}")
@@ -88,7 +81,6 @@ window.danielromero.ready = ->
     if typeof(ga) == "function"
       ga('send', 'event', 'button', 'click', 'fork this project')
     return
-  'ul.nav.navbar-nav.navbar-center'
 
 window.danielromero.soft_appear = () ->
   $('.daniel_romero .soft_appear').first().appear()

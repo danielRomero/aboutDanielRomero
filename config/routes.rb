@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   put 'send_message', to: 'contact#send_message'
   get 'clear_session', to: 'application#clear_session'
 
+  get '/:token', to: 'application#index'
+
   get '/sitemap', to: 'application#sitemap', as: 'sitemap', defaults: { format: 'xml' }
 end

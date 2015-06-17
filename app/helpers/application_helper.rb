@@ -26,4 +26,5 @@ module ApplicationHelper
     end
     return value
   end
+
 end
