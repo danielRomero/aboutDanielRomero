@@ -6,8 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-require 'dotenv'
-Dotenv.load
+if Rails.env.production?
+  require 'dotenv'
+  Dotenv.load
+end
 
 AVATARS = ['https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/0a7/228/39fddd5.jpg', 'https://pbs.twimg.com/profile_images/485074599739019264/hSHRCnH2.jpeg']
 
