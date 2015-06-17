@@ -76,6 +76,6 @@
         if (typeof ga === "function") {
           ga('create', 'UA-58306488-1', 'auto');
           ga('require', 'linkid', 'linkid.js');
-          ga('send', 'event', 'button', 'click', #{session[:track_token].inspect});
+          ga('send', 'event', 'button', 'referal', #{session[:track_token].inspect});
         }
       -session.delete(:track_token)
