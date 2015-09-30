@@ -59,3 +59,13 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+server 'ec2-52-17-182-121.eu-west-1.compute.amazonaws.com',
+  user: 'ubuntu',
+  roles: %w{web app db},
+  ssh_options: {
+    user: 'ubuntu', # overrides user setting above
+    keys: ["#{Dir.pwd}/EC2Confisio.pem"],
+    forward_agent: false,
+    auth_methods: %w(publickey password)
+    # password: 'please use keys'
+  }

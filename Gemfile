@@ -43,7 +43,11 @@ gem 'oauth'
 gem 'oauth2'
 group :development do
   # Use Capistrano for deployment
+  gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
 end
 
 group :development, :test do
