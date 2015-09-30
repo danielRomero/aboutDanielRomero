@@ -1,13 +1,16 @@
-window.twitter_index.change_page();
+<% cache ['v1', 'tw_index_js', TwitterAccount.first, @page] do %>
+  window.twitter_index.change_page();
 
-$('#twitter_loading_area').fadeOut('fast');
+  $('#twitter_loading_area').fadeOut('fast');
 
-$('#twitter .panel-body').append("<%= j render(partial: 'tweets/index_row_pager', locals: { page: page }) %>");
+  $('#twitter .panel-body').append("<%= j render(partial: 'tweets/index_row_pager', locals: { page: @page }) %>");
 
-if ($("#twitter_pager_<%= page - 1%>").length) {
-  $("ul.pager.tweet_pager#twitter_pager_<%= page - 1%> li.newer a").removeAttr('href').removeAttr('data-remote').attr('onclick', "window.twitter_index.change_page(<%= page %>)");
-}
+  if ($("#twitter_pager_<%= @page - 1%>").length) {
+    $("ul.pager.tweet_pager#twitter_pager_<%= @page - 1%> li.newer a").removeAttr('href').removeAttr('data-remote').attr('onclick', "window.twitter_index.change_page(<%= @page %>)");
+  }
 
-$('#twitter ul.list-group').append("<%= j render(partial: 'tweets/index', locals: { tweets: tweets, page: page }) %>");
+  $('#twitter ul.list-group').append("<%= j render(partial: 'tweets/index', locals: { page: @page }) %>");
 
-$('#flashes').replaceWith("<%= j render(partial: 'application/flashes') %>")
+  $('#flashes').replaceWith("<%= j render(partial: 'application/flashes') %>")
+
+<% end %>

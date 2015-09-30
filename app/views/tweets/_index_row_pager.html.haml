@@ -1,8 +1,10 @@
-%ul.pager.tweet_pager{id: "twitter_pager_#{page}"}
-  -if page > 0
-    %li.older{data: {page: page - 1}}
-      %a{onclick: "window.twitter_index.change_page('#{page - 1}')"}
-        ="← #{t(:newer)}"
-  -if page < (tweets_count/4)
-    %li.newer{data: {page: page + 1}}
-      =link_to("#{t(:older)} →", tweets_path(I18n.locale.to_s,page + 1), remote: true, onclick: "$('#twitter_loading_area').fadeIn('slow');")
+- cache ['v1', 'tw_index_row_pager', TwitterAccount.first, page] do
+  %ul.pager.tweet_pager{id: "twitter_pager_#{page}"}
+    -if page > 0
+      %li.older{data: {page: page - 1}}
+        %a{onclick: "window.twitter_index.change_page('#{page - 1}')"}
+          ="← #{t(:newer)}"
+
+    -if page < (Tweet.count/4)
+      %li.newer{data: {page: page + 1}}
+        =link_to("#{t(:older)} →", tweets_path(I18n.locale.to_s, page + 1), remote: true, onclick: "$('#twitter_loading_area').fadeIn('slow');")

@@ -1,42 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'haml'
-gem 'bootstrap-sass'
-gem 'bootswatch-rails'
-gem 'twitter'
-gem 'twitter-text'
-gem 'oauth'
-gem 'oauth2'
-gem 'pg'
-gem 'rollbar'
-gem 'newrelic_rpm'
-# gem 'unirest'
-gem 'mandrill-api'
-gem 'activerecord-session_store'
-gem 'jquery-jcanvas-rails', git: "https://github.com/danielRomero/jquery-jcanvas-rails.git"
-group :development, :test do
-  gem 'dotenv-rails'
-end
-group :production do
-  gem 'rails_12factor'
-  gem 'dalli'
-end
-
-gem 'platform-api'
-gem 'heroku-api'
-gem 'unirest'
-
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.2'
+# Use postgresql as the database for Active Record
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -51,10 +25,26 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'passenger'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'twitter'
+# parse twitter username to link
+gem 'twitter-text'
+
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'awesome_print'
+gem 'haml-rails'
+gem 'unirest'
+gem 'exception_notification'
+gem 'nokogiri-styles'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+gem 'jquery-jcanvas-rails', git: "https://github.com/danielRomero/jquery-jcanvas-rails.git"
+gem 'oauth'
+gem 'oauth2'
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano-rails'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,5 +55,16 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  # See https://github.com/rails/execjs#readme for more supported runtimes
+  gem 'therubyracer', platforms: :ruby
+  # Use Passenger as the app server
+  gem 'passenger'
+  
+  gem 'memcachier'
+  gem 'dalli'
+  gem 'rack-cache'
 end
 

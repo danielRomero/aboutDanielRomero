@@ -50,6 +50,13 @@ es:
   timeline_title_10: "Segunda charla ßetabeers"
   timeline_content_10: "Desde que empezamos con las charlas ßetabeers siempre había querido explicar algo que a mi me llamó muchísimo la atención durante el pryecto de fin de carrera: Los Websockets, le veo mucho potencial y quería explicar de forma práctica mediante una implementación de un chat las posibilidades de utilizar esta tecnología. Nos lo pasamos como enanos escribiendo todos los asistentes en el mismo chat durante la charla."
   social_network_integration: "Integración con redes sociales"
+
+  timeline_title_11: "Junior Backend Developer en AluxionLabs"
+  timeline_content_11: "Aluxion Labs es una consultora que se dedica a desarrollar aplicaciones móviles. Durante este tiempo me he encargado de desarrollar y mantener todos los servicios de Backend y APIs REST así como de diseñar soluciones para los nuevos productos."
+
+  timeline_title_12: "Freelance"
+  timeline_content_12: "Últimamente he estado aprendiendo mucho del mundo freelance. Entre otras cosas he reforzado mis conocimientos sobre Ruby on Rails y he tenido oportunidad de trabajar mucho con Amazon Web Services levantando, configurando y manteniendo los sistemas de las aplicaciones que he desarrollado."
+
   newer: "Nuevos"
   older: "Antiguos"
   fork_this_project: "Puedes ver el código fuente de esta página en GitHub"

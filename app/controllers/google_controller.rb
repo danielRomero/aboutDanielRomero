@@ -28,7 +28,7 @@ class GoogleController < ApplicationController
           flash[:error] = t(:social_login_error)
         end
       rescue Exception => e
-        Rollbar.error(e)
+        ExceptionNotifier.notify_exception(e)
         flash[:error] = t(:social_login_error)
       end
       redirect_to contact_path(I18n.locale)

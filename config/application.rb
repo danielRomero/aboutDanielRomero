@@ -6,26 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if !Rails.env.production?
-  require 'dotenv'
-  Dotenv.load
-end
-
-AVATARS = ['https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/0a7/228/39fddd5.jpg', 'https://pbs.twimg.com/profile_images/485074599739019264/hSHRCnH2.jpeg']
-
 LOCALES = ['es', 'en']
-
-if Rails.env == 'production'
-  DOMINIO = "https://danielromero.herokuapp.com"
-else
-  DOMINIO = "localhost:3000"
-end
+AVATARS = ['https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/0a7/228/39fddd5.jpg', 'https://pbs.twimg.com/profile_images/485074599739019264/hSHRCnH2.jpeg']
 LAST_MOD_SITEMAP=DateTime.parse('11/3/2015').utc
 
-module About
+module Danielromero
   class Application < Rails::Application
-
-    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -35,11 +21,10 @@ module About
     config.time_zone = 'Madrid'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    #config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
   end
 end

@@ -1,3 +1,4 @@
-.tweet_index{id: "tweets_index_#{page}"}
-  -for tweet in tweets
-    =render partial: 'tweets/index_row', locals: { tweet: tweet }
+- cache ['v1', 'tw_index', TwitterAccount.first, page] do
+  .tweet_index{id: "tweets_index_#{page}"}
+    -for tweet in Tweet.limit(Tweet::PER_PAGE).offset(Tweet::PER_PAGE * page)
+      =render partial: 'tweets/index_row', locals: { tweet: tweet }

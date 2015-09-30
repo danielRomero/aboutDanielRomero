@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'application#index'
+root 'application#index'
   scope "(:locale)", locale: /en|es/ do
     get '/', to: 'application#index', as: 'root_locale'
-    get '/change_locale', to: 'application#change_locale'
     get 'contact', to: 'contact#index'
     get '/tweets/:page', to: 'tweets#index', as: 'tweets'
   end

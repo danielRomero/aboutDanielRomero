@@ -1,1 +1,0 @@
-web: bundle exec passenger start -p $PORT --max-pool-size=5 --min-instances=1 --engine=builtin --spawn-method=smart --startup-file=https://danielromero.herokuapp.com/

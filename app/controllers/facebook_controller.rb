@@ -14,7 +14,7 @@ class FacebookController < ApplicationController
         session[:user] = user
         flash[:success] = t(:user_logged_in)
       rescue Exception => e
-        Rollbar.error(e)
+        ExceptionNotifier.notify_exception(e)
         flash[:error] = t(:social_login_error)
       end
     else

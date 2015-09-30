@@ -1,63 +1,66 @@
--classes = ['default', 'primary', 'success', 'info', 'warning', 'danger']
-%div{:itemscope => "", :itemtype => "http://data-vocabulary.org/Person"}
-  #about
-    #me
-      .row
-        .col-xs-12.col-sm-9.col-md-10.col-lg-10
-          .page-header
-            %h1
-              %span{:itemprop => "name"}
-                Daniel Romero Esteban
-              %span.hidden{:itemprop => "title"}
-                =t(:degree_title)
-              %span.hidden{:itemprop => "affiliation"}
-                Beperk.com
-            %span.hidden{:itemprop => "address", :itemscope => "", :itemtype => "http://data-vocabulary.org/Address"}
-              %span{:itemprop => "locality"} Guadalajara
-              %span{:itemprop => "region"} Castilla la mancha
-              %span{:itemprop => "country"}=t(:spain)
-          .col-xs-12.col-sm-12.col-md-8.col-lg-8 
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 98 } } Ruby on Rails
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 78 } } AWS
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Postgresql
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 83 } } Transloadit
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Heroku
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 85 } } PayPal API
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 84 } } Cloudinary
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 95 } } memcachier
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 70 } } Mandrill
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 75 } } CoffeeScript
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 97 } } HTML 5
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 85 } }
-              =t(:social_network_integration)
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 99 } } APIs REST
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Git
-            %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 80 } } WebSockets
-          .hidden-xs.hidden-sm.col-md-4.col-lg-4
-            .progress{style: 'display: none'}
-              .progress-bar.progress-bar-success{aria: {valuemax: '100', valuemin: '0', valuenow: '0'}, role: 'progressbar', style: 'width: 0%;'}
-        .hidden-xs.col-sm-3.col-md-2.col-lg-2
-          .relative_avatar_holder{style: 'position: relative'}
-            =image_tag(AVATARS.sample, class: 'img-circle img-responsive avatar pull-right avatar_image', alt: 'Daniel Romero Esteban')
-            %canvas#skill_canvas.avatar_skill{width: '152px', height: '152px;'}
-            .skill_under_avatar_info_holder.text-center
-              #skill_canvas_percent
-              #skill_canvas_caption
-      #timeline
-        =render partial: 'application/timeline', locals: {classes: classes}
-    %hr
-    #twitter
-      .panel.panel-default
-        .panel-heading
-          %h3.panel-title
-            Twitter - danielRomeroE
-            #twitter_loading_area.fa.fa-circle-o-notch.fa-spin.pull-right{ data: { toggle: 'tooltip', placement: 'top', original: {title: t(:loading) } }, title: t(:loading) }
-            :javascript
-              $('#twitter_loading_area').appear();
-              $('#twitter_loading_area').on('appear', function(event, elem){
-                $(this).unbind('appear');
-                $.getScript("#{tweets_path(I18n.locale.to_s, 0)}");
-              });
-              $.force_appear();
-        .panel-body
-          %ul.list-group
+- cache ['v1', 'application_index', @twitter_account], expires_in: 1.day do
+  -classes = ['default', 'primary', 'success', 'info', 'warning', 'danger']
+  %div{:itemscope => "", :itemtype => "http://data-vocabulary.org/Person"}
+    #about
+      - cache ['v1', 'application_index', 'skills-timeline'], expires_in: 1.day do
+        #me
+          .row
+            .col-xs-12.col-sm-9.col-md-10.col-lg-10
+              .page-header
+                %h1
+                  %span{:itemprop => "name"}
+                    Daniel Romero Esteban
+                  %span.hidden{:itemprop => "title"}
+                    =t(:degree_title)
+                  %span.hidden{:itemprop => "affiliation"}
+                    Beperk.com
+                %span.hidden{:itemprop => "address", :itemscope => "", :itemtype => "http://data-vocabulary.org/Address"}
+                  %span{:itemprop => "locality"} Guadalajara
+                  %span{:itemprop => "region"} Castilla la mancha
+                  %span{:itemprop => "country"}=t(:spain)
+              .col-xs-12.col-sm-12.col-md-8.col-lg-8 
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 98 } } Ruby on Rails
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 78 } } AWS
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Postgresql
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 83 } } Transloadit
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Heroku
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 85 } } PayPal API
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 84 } } Cloudinary
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 95 } } memcachier
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 70 } } Mandrill
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 75 } } CoffeeScript
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 97 } } HTML 5
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 85 } }
+                  =t(:social_network_integration)
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 99 } } APIs REST
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 90 } } Git
+                %span.label.skill{ class: "label-#{classes.sample}", data: { percent: 80 } } WebSockets
+              .hidden-xs.hidden-sm.col-md-4.col-lg-4
+                .progress{style: 'display: none'}
+                  .progress-bar.progress-bar-success{aria: {valuemax: '100', valuemin: '0', valuenow: '0'}, role: 'progressbar', style: 'width: 0%;'}
+            .hidden-xs.col-sm-3.col-md-2.col-lg-2
+              .relative_avatar_holder{style: 'position: relative'}
+                =image_tag(AVATARS.sample, class: 'img-circle img-responsive avatar pull-right avatar_image', alt: 'Daniel Romero Esteban')
+                %canvas#skill_canvas.avatar_skill{width: '152px', height: '152px;'}
+                .skill_under_avatar_info_holder.text-center
+                  #skill_canvas_percent
+                  #skill_canvas_caption
+          #timeline
+            =render partial: 'application/timeline', locals: {classes: classes}
+      - cache ['v1', 'application_index', @twitter_account] do
+        %hr
+        #twitter
+          .panel.panel-default
+            .panel-heading
+              %h3.panel-title
+                ="Twitter - #{@twitter_account.username}"
+                #twitter_loading_area.fa.fa-circle-o-notch.fa-spin.pull-right{ data: { toggle: 'tooltip', placement: 'top', original: {title: t(:loading) } }, title: t(:loading) }
+                :javascript
+                  $('#twitter_loading_area').appear();
+                  $('#twitter_loading_area').on('appear', function(event, elem){
+                    $(this).unbind('appear');
+                    $.getScript("#{tweets_path(I18n.locale.to_s, 0)}");
+                  });
+                  $.force_appear();
+            .panel-body
+              %ul.list-group

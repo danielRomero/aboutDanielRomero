@@ -11,19 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309232722) do
+ActiveRecord::Schema.define(version: 20150928184825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "sessions", force: :cascade do |t|
-    t.string   "session_id", null: false
-    t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "tweets", force: :cascade do |t|
+    t.integer  "retweet_count",      default: 0
+    t.integer  "favorite_count",     default: 0
+    t.datetime "tweet_created_at"
+    t.string   "url"
+    t.text     "full_text",          default: ""
+    t.integer  "twitter_account_id"
+    t.string   "twitter_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
-  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
-  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+  add_index "tweets", ["twitter_account_id"], name: "index_tweets_on_twitter_account_id", using: :btree
+
+  create_table "twitter_accounts", force: :cascade do |t|
+    t.string   "username",        default: ""
+    t.integer  "followers_count", default: 0
+    t.integer  "following_count", default: 0
+    t.string   "url",             default: ""
+    t.string   "avatar_url",      default: ""
+    t.integer  "tweets_count",    default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
 end
