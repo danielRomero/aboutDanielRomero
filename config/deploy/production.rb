@@ -59,7 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
-server 'ec2-52-17-182-121.eu-west-1.compute.amazonaws.com',
+server 'ubuntu@52.16.79.110',
   user: 'ubuntu',
   roles: %w{web app db},
   ssh_options: {

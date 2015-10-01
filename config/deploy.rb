@@ -20,15 +20,21 @@ set :repo_url, 'git@github.com:danielRomero/aboutDanielRomero.git'
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+
+set :rails_env, 'production'               # If the environment differs from the stage name
+set :migration_role, 'db'                  # Defaults to 'db'
+set :conditionally_migrate, true           # Defaults to false. If true, it's skip migration if files in db/migrate not modified
+set :assets_roles, [:web, :app]            # Defaults to [:web]
+set :assets_prefix, 'assets'   # Defaults to 'assets' this should match config.assets.prefix in your rails config/application.rb
+set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 
 # Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+#set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', '.env')
 set :linked_files, %w{config/database.yml config/secrets.yml .env.production}
-set :config_files, %w(config/database.yml config/secrets.yml .env.production)
+
+set(:config_files, %w(config/database.yml config/secrets.yml .env.production))
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for default_env is {}
@@ -37,13 +43,6 @@ set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-set :rails_env, 'production'               # If the environment differs from the stage name
-set :migration_role, 'db'                  # Defaults to 'db'
-set :conditionally_migrate, true           # Defaults to false. If true, it's skip migration if files in db/migrate not modified
-set :assets_roles, [:web, :app]            # Defaults to [:web]
-set :assets_prefix, 'assets'   # Defaults to 'assets' this should match config.assets.prefix in your rails config/application.rb
-set :normalize_asset_timestamps, %{public/images public/javascripts public/stylesheets}
 
 set :passenger_restart_with_touch, true
 
