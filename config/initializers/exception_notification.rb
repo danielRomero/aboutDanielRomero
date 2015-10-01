@@ -16,8 +16,8 @@ ExceptionNotification.configure do |config|
   # Email notifier sends notifications by email.
   config.add_notifier :email, {
     :email_prefix => "[Britebeet] [#{Rails.env}] ",
-    :sender_address => %{"Britebeet" #{ENV['MAIN_EMAIL']}},
-    :exception_recipients => ENV['DEV_EMAILS'].split(" "),
+    :sender_address => %{"Britebeet" #{ENV['CONTACT_EMAIL']}},
+    :exception_recipients => ENV['CONTACT_EMAIL'].split(" "),
     :email_format => :html
   }
 

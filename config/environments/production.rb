@@ -84,8 +84,8 @@ Rails.application.configure do
   Rails.application.config.middleware.use ExceptionNotification::Rack,
     :email => {
       :email_prefix => "[PREFIX] ",
-      :sender_address => %{"notifier" <#{ENV['DEV_EMAIL_ADDRESS']}>},
-      :exception_recipients => [ ENV['DEV_EMAIL_ADDRESS'] ]
+      :sender_address => %{"notifier" <#{ENV['CONTACT_EMAIL']}>},
+      :exception_recipients => [ ENV['CONTACT_EMAIL'] ]
     }
 
   config.middleware.use Rack::Cache,
