@@ -33,7 +33,7 @@ module Danielromero
     config.action_mailer.smtp_settings = {
       :address => ENV['SMTP_ADDRESS'],
       :port => ENV['SMTP_PORT'],
-      :domain => ENV['DOMAIN'],
+      :domain => ENV['SMTP_DOMAIN'],
       :user_name => ENV['DEV_EMAIL_ADDRESS'],
       :password => ENV['DEV_EMAIL_PASS'],
       :authentication => ENV['SMTP_AUTHENTICATION'],

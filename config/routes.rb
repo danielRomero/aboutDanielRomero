@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-root 'application#index'
+  root 'application#index'
   scope "(:locale)", locale: /en|es/ do
     get '/', to: 'application#index', as: 'root_locale'
     get 'contact', to: 'contact#index'
@@ -14,8 +14,6 @@ root 'application#index'
   post 'authenticate_facebook', to: 'facebook#authenticate'
   put 'send_message', to: 'contact#send_message'
   get 'clear_session', to: 'application#clear_session'
-
-  get '/:token', to: 'application#index'
-
   get '/sitemap', to: 'application#sitemap', as: 'sitemap', defaults: { format: 'xml' }
+  get '/:token', to: 'application#index'
 end

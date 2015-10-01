@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
-  <url>
-    <loc><%= ENV['HOST'] %></loc>
-    <lastmod><%= LAST_MOD_SITEMAP %></lastmod>
-  </url>
-  <url>
-    <loc><%= ENV['HOST'] %>/contact</loc>
-    <lastmod><%= LAST_MOD_SITEMAP %></lastmod>
-  </url>
-</urlset>
+  <% cache ['v1', 'sitemap'], :expires_in => 1.day do %>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+    <url>
+      <loc><%= root_url %></loc>
+      <lastmod><%= I18n.l(1.month.ago, :format => :w3c) %></lastmod>
+      
+    </url>
+    <% LOCALES.each do |locale| %>
+      <url>
+        <loc><%= contact_url(locale) %></loc>
+        <lastmod><%= I18n.l(1.month.ago, :format => :w3c) %></lastmod>
+      </url>
+    <% end %>
+  </urlset>
+<% end %>

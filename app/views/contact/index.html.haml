@@ -6,7 +6,7 @@
       .container
         %h1=t(:contact).capitalize
         %p=t(:contact_login)
-        =link_to(authenticate_twitter_path, class: 'btn btn-primary', 'data-no-turbolink' => true) do
+        -#=link_to(authenticate_twitter_path, class: 'btn btn-primary', 'data-no-turbolink' => true) do
           .fa.fa-twitter
         =link_to(authenticate_google_path, class: 'btn btn-primary','data-no-turbolink' => true) do
           .fa.fa-google

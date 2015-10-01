@@ -61,3 +61,12 @@ en:
   newer: "Newer"
   older: "Older"
   fork_this_project: "You can view the source code of this page on GitHub"
+  time:
+    am: am
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d de %b %H:%M"
+    pm: pm
+    formats:
+      w3c: "%Y-%m-%dT%H:%M:%S+00:00"
