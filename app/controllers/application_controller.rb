@@ -21,16 +21,12 @@ class ApplicationController < ActionController::Base
 
   private
     def set_locale
-      prev_locale = I18n.locale
       if params[:locale].blank?
         # locale from browser
         I18n.locale = request.env['HTTP_ACCEPT_LANGUAGE'].blank? ? I18n.default_locale : request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
       elsif LOCALES.include?(params[:locale])
         # locale from params
         I18n.locale = params[:locale] || I18n.default_locale
-      end
-      if I18n.locale != prev_locale
-        redirect_to root_locale_path(I18n.locale)
       end
     end
 end
