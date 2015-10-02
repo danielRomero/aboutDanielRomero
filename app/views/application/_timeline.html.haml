@@ -13,7 +13,7 @@
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              ='26/6/2015'.to_date.to_s(:short)
+              =distance_of_time_in_words("22/7/2015", Time.now)
         .timeline-body
           %p=t(:timeline_content_12)
   %li.timeline-inverted.soft_appear{data: {appear: {top: {offset: "0"}}}}
@@ -24,7 +24,7 @@
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              ='6/4/2015'.to_date.to_s(:short)
+              =distance_of_time_in_words("6/4/2015", "26/6/2015")
         .timeline-body
           %p=t(:timeline_content_11)
   -##### 2014

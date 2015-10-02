@@ -41,6 +41,7 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem 'jquery-jcanvas-rails', git: "https://github.com/danielRomero/jquery-jcanvas-rails.git"
 gem 'oauth'
 gem 'oauth2'
+gem 'whenever'
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano'
