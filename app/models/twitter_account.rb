@@ -11,10 +11,8 @@ class TwitterAccount < ActiveRecord::Base
     self.avatar_url      = "#{tw_user.profile_image_url.scheme}://#{tw_user.profile_image_url.host}#{tw_user.profile_image_url.path.gsub('normal', '400x400')}"
     self.username        = "@#{twitter_connection.user.screen_name}"
     self.url             = "#{tw_user.url.scheme}://#{tw_user.url.host}#{tw_user.url.path}"
-
-    self.fetch_latest_tweets(self.tweets.last ? self.tweets.last.twitter_id : nil) if tw_user.tweets_count > self.tweets.count
-
     self.save
+    self.fetch_latest_tweets(self.tweets.last ? self.tweets.last.twitter_id : nil) if tw_user.tweets_count > self.tweets.count
   end
 
   # Retrieve news tweets from twitter or update olds
