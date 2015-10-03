@@ -1,4 +1,4 @@
-- cache ['v1', 'tw_index_row_pager', TwitterAccount.first, page] do
+- cache ['v1', 'tw_index_row_pager', TwitterAccount.first, page, I18n.locale] do
   %ul.pager.tweet_pager{id: "twitter_pager_#{page}"}
     -if page > 0
       %li.older{data: {page: page - 1}}
