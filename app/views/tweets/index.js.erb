@@ -1,4 +1,4 @@
-<% cache ['v1', 'tw_index_js', TwitterAccount.first, @page] do %>
+<% cache ['v1', 'tw_index_js', TwitterAccount.first, @page, I18n.locale] do %>
   window.twitter_index.change_page();
 
   $('#twitter_loading_area').fadeOut('fast');
