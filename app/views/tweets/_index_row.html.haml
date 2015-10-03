@@ -6,8 +6,8 @@
     -if tweet.favorite_count > 0
       =tweet.favorite_count
       .fa.fa-star
-    %span{title: tweet.created_at}
-      =time_ago_in_words(tweet.created_at)
+    %span{title: tweet.tweet_created_at}
+      =time_ago_in_words(tweet.tweet_created_at)
       .fa.fa-clock-o
   =link_to(tweet.url.to_s, target: '_blank') do
     .fa.fa-external-link
