@@ -47,7 +47,7 @@
                   #skill_canvas_caption
           #timeline
             =render partial: 'application/timeline', locals: {classes: classes}
-      - cache ['v1', 'application_index', @twitter_account] do
+      - cache ['v1', 'application_index', @twitter_account, I18n.locale] do
         %hr
         #twitter
           .panel.panel-default
