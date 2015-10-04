@@ -56,13 +56,8 @@
                 ="Twitter - "
                 %span
                   =link_to @twitter_account.username, @twitter_account.url
-                #twitter_loading_area.fa.fa-circle-o-notch.fa-spin.pull-right{ data: { toggle: 'tooltip', placement: 'top', original: {title: t(:loading) } }, title: t(:loading) }
-                :javascript
-                  $('#twitter_loading_area').appear();
-                  $('#twitter_loading_area').on('appear', function(event, elem){
-                    $(this).unbind('appear');
-                    $.getScript("#{tweets_path(I18n.locale.to_s, 0)}");
-                  });
-                  $.force_appear();
+                #twitter_loading_area.fa.fa-circle-o-notch.fa-spin.pull-right{ data: { toggle: 'tooltip', placement: 'top', original: {title: t(:loading) } }, title: t(:loading), style: 'display: none;' }
             .panel-body
               %ul.list-group
+                =render partial: 'tweets/index', locals: { page: 0 }
+              = render partial: 'tweets/index_row_pager', locals: { page: 0 }

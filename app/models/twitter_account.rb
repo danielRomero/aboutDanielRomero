@@ -12,11 +12,11 @@ class TwitterAccount < ActiveRecord::Base
     self.username        = "@#{twitter_connection.user.screen_name}"
     self.url             = "#{tw_user.url.scheme}://#{tw_user.url.host}#{tw_user.url.path}"
     self.save
-    self.fetch_latest_tweets(self.tweets.count > 0  ? self.tweets.order(tweet_created_at: :desc).first.twitter_id : nil) if tw_user.tweets_count > self.tweets.count
+    self.fetch_latest_tweets(self.tweets.count > 0  ? self.tweets.order(twitter_id: :desc).first.twitter_id : nil) if tw_user.tweets_count > self.tweets.count
   end
 
   # Retrieve news tweets from twitter or update olds
-  def fetch_latest_tweets(last_id = self.tweets ? self.tweets.order(tweet_created_at: :desc).first.twitter_id : nil)
+  def fetch_latest_tweets(last_id = self.tweets ? self.tweets.order(twitter_id: :desc).first.twitter_id : nil)
     options = { count: 4, include_rts: true }
     options[:max_id] = last_id if last_id
     begin
