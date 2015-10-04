@@ -1,8 +1,13 @@
 %nav.navbar.navbar-default
   .container-fluid
     .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       =link_to('Daniel Romero', '#', class: 'navbar-brand', onclick: "window.danielromero.scroll_to($('body'))" )
-    .collapse.navbar-collapse
+    #bs-example-navbar-collapse-2.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         -for locale in LOCALES
           %li{class: I18n.locale.to_s == locale ? 'active' : nil}
