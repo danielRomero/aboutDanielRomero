@@ -33,7 +33,7 @@ class TwitterAccount < ActiveRecord::Base
       end
       fetch_latest_tweets( response.last.id - 1 ) if response.last
     rescue => e
-      ExceptionNotifier.notify_exception(e)
+      ExceptionNotifier.notify_exception(e, data: {options: options, last_id: last_id})
       raise e.exception if Rails.env.development?
     end
     return true
