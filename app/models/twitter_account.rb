@@ -12,13 +12,13 @@ class TwitterAccount < ActiveRecord::Base
     self.username        = "@#{twitter_connection.user.screen_name}"
     self.url             = "#{tw_user.url.scheme}://#{tw_user.url.host}#{tw_user.url.path}"
     self.save
-    self.fetch_latest_tweets(self.tweets.count > 0  ? self.tweets.order(twitter_id: :desc).first.twitter_id : nil) if tw_user.tweets_count > self.tweets.count
+    self.fetch_latest_tweets(self.tweets.count > 0  ? self.tweets.maximum(:twitter_id) : nil) if tw_user.tweets_count > self.tweets.count
   end
 
   # Retrieve news tweets from twitter or update olds
-  def fetch_latest_tweets(last_id = self.tweets ? self.tweets.order(twitter_id: :desc).first.twitter_id : nil)
+  def fetch_latest_tweets(last_id = self.tweets ? self.tweets.maximum(:twitter_id) : nil)
     options = { count: 4, include_rts: true }
-    options[:max_id] = last_id if last_id
+    options[:since_id] = last_id if last_id
     begin
       response = twitter_connection.user_timeline(options)
       response.each do |tw_tweet|
@@ -31,9 +31,9 @@ class TwitterAccount < ActiveRecord::Base
         tweet.twitter_account_id = self.id
         tweet.save
       end
-      fetch_latest_tweets( response.last.id - 1 ) if response.last
+      fetch_latest_tweets( response.last.id ) if(response.last and (response.last.id != last_id))
     rescue => e
-      ExceptionNotifier.notify_exception(e, {options: options, last_id: last_id})
+      ExceptionNotifier.notify_exception(e, {options: options.inspect, last_id: last_id.inspect})
       raise e.exception if Rails.env.development?
     end
     return true
