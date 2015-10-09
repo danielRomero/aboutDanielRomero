@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 5.hours do
+every 30.minutes do
   runner "TwitterAccount.last.update_all_account_data"
 end
