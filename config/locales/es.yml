@@ -55,7 +55,10 @@ es:
   timeline_content_11: "Aluxion Labs es una consultora que se dedica a desarrollar aplicaciones móviles. Durante este tiempo me he encargado de desarrollar y mantener todos los servicios de Backend y APIs REST así como de diseñar soluciones para los nuevos productos."
 
   timeline_title_12: "Freelance"
-  timeline_content_12: "Últimamente he estado aprendiendo mucho del mundo freelance. Entre otras cosas he reforzado mis conocimientos sobre Ruby on Rails y he tenido oportunidad de trabajar mucho con Amazon Web Services levantando, configurando y manteniendo los sistemas de las aplicaciones que he desarrollado."
+  timeline_content_12: "Durante este periodo he estado aprendiendo mucho del mundo freelance. Entre otras cosas he reforzado mis conocimientos sobre Ruby on Rails y he tenido oportunidad de trabajar mucho con Amazon Web Services levantando, configurando y manteniendo los sistemas de las aplicaciones que he desarrollado."
+  
+  timeline_title_13: "The Cocktail Experience"
+  timeline_content_13: "Actualmente soy desarrollador backend en la RubyRoom de The Cocktail Experience. Aquí tengo la oportunidad de aprender de mano de grandes profesionales así como de descubrir y trastear con cosas nuevas cada día."
 
   newer: "Nuevos"
   older: "Antiguos"

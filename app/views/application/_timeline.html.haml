@@ -9,11 +9,24 @@
         15
       .timeline-panel
         .timeline-heading
+          %h4.timeline-title=t(:timeline_title_13)
+          %p
+            %small.text-muted
+              %i.fa.fa-clock-o
+              =distance_of_time_in_words("19/10/2015", Time.now)
+        .timeline-body
+          %p=t(:timeline_content_13)
+  %li{data: {appear: {top: {offset: "0"}}}}
+    .appear_elem
+      .timeline-badge{ class: classes.sample }
+        15
+      .timeline-panel
+        .timeline-heading
           %h4.timeline-title=t(:timeline_title_12)
           %p
             %small.text-muted
               %i.fa.fa-clock-o
-              =distance_of_time_in_words("22/7/2015", Time.now)
+              =distance_of_time_in_words("22/7/2015", "1/10/2015")
         .timeline-body
           %p=t(:timeline_content_12)
   %li.timeline-inverted{data: {appear: {top: {offset: "0"}}}}
