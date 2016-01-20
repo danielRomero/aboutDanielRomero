@@ -3,7 +3,7 @@
     .timeline-badge.year{style: 'top: -40px;'}
       Año
   -##### 2015
-  %li{data: {appear: {top: {offset: "0"}}}}
+  %li.timeline-inverted{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
       .timeline-badge{ class: classes.sample }
         15
@@ -18,8 +18,6 @@
           %p=t(:timeline_content_13)
   %li{data: {appear: {top: {offset: "0"}}}}
     .appear_elem
-      .timeline-badge{ class: classes.sample }
-        15
       .timeline-panel
         .timeline-heading
           %h4.timeline-title=t(:timeline_title_12)
