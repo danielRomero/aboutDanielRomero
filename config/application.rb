@@ -29,18 +29,23 @@ module Danielromero
 
     config.action_mailer.perform_deliveries = true
 
-    config.action_mailer.delivery_method = :smtp
+    # config.action_mailer.delivery_method = :smtp
 
     config.action_mailer.default_url_options = { host: ENV['HOST'] }
     config.action_mailer.default :charset => "utf-8"
-    config.action_mailer.smtp_settings = {
-      :address   => ENV['SMTP_ADDRESS'],
-      :port      => ENV['SMTP_PORT'],
-      :enable_starttls_auto => true,
-      :user_name => ENV['SMTP_USERNAME'],
-      :password  => ENV['SMTP_PASSWORD'],
-      :authentication => 'login',
-      :domain => ENV['HOST'],
+    # config.action_mailer.smtp_settings = {
+    #   :address   => ENV['SMTP_ADDRESS'],
+    #   :port      => ENV['SMTP_PORT'],
+    #   :enable_starttls_auto => true,
+    #   :user_name => ENV['SMTP_USERNAME'],
+    #   :password  => ENV['SMTP_PASSWORD'],
+    #   :authentication => 'login',
+    #   :domain => ENV['HOST'],
+    # }
+    config.action_mailer.delivery_method = :mailgun
+    config.action_mailer.mailgun_settings = {
+      api_key: ENV['MAILGUN_APIKEY'],
+      domain: ENV['MAILGUN_DOMAIN']
     }
   end
 end
