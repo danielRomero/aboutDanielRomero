@@ -42,7 +42,6 @@ gem 'jquery-jcanvas-rails', git: "https://github.com/danielRomero/jquery-jcanvas
 gem 'oauth'
 gem 'oauth2'
 gem 'whenever'
-gem 'mailgun_rails'
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano'
