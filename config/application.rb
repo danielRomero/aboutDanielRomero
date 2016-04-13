@@ -42,10 +42,14 @@ module Danielromero
     #   :authentication => 'login',
     #   :domain => ENV['HOST'],
     # }
-    config.action_mailer.delivery_method = :mailgun
-    config.action_mailer.mailgun_settings = {
-      api_key: ENV['MAILGUN_APIKEY'],
-      domain: ENV['MAILGUN_DOMAIN']
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :authentication => :plain,
+      :address => ENV['SMTP_ADDRESS'],
+      :port => 587,
+      :domain => ENV['SMTP_DOMAIN'],
+      :user_name => ENV['SMTP_USERNAME'],
+      :password => ENV['SMTP_PASSWORD']
     }
   end
 end
